@@ -14,6 +14,7 @@ passport.use(
         async (accessToken, refreshToken, profile, done) => {
             // get profile details
             // save profile details in db
+            console.log(profile);
             let userRepo = new UsersRepositories();
             const user = await userRepo.findByGoogleId(profile.id);
             // If user doesn't exist creates a new user. (similar to sign up)

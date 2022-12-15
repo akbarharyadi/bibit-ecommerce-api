@@ -15,6 +15,7 @@ model users {
   name                 String                 @db.VarChar(255)
   email                String                 @db.VarChar(255)
   google_id            String                 @db.VarChar(255)
+  avatar               String                 @db.VarChar(255)
   federated_credential federated_credentials?
 }
 

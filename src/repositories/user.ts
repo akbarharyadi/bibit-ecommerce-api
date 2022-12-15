@@ -19,7 +19,6 @@ export class UsersRepositories extends BaseRepositories {
     }
 
     async create(profile: any) {
-        console.log(profile)
         return await this.getPrismaInstance().users.create({
             data: {
                 username: profile.emails?.[0].value.split('@')[0],
@@ -27,7 +26,8 @@ export class UsersRepositories extends BaseRepositories {
                 salt: 'xxxxx',
                 name: profile.displayName,
                 email: profile.emails?.[0].value,
-                google_id: profile.id
+                google_id: profile.id,
+                avatar: profile.photos?.[0].value
             },
         });
     }
