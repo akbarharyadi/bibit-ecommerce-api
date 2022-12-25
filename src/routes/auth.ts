@@ -7,12 +7,12 @@ import { COOKIE_KEY } from '../config';
 
 export class AuthRoutes extends CommonRoutes {
     configureRoutes() {
-        
+
         this.app.route(`/auth/google`)
             .get(passport.authenticate("google", {
                 scope: ["email", "profile"],
             })
-            );
+        );
 
         this.app.route(`/auth/user`)
             .get(passport_jwt.authenticate('jwt', { session: false }), async (req: express.Request, res: express.Response) => {
@@ -33,6 +33,7 @@ export class AuthRoutes extends CommonRoutes {
 
         return this.app;
     }
+    
     constructor(app: express.Application) {
         super(app, 'AuthRoutes');
     }

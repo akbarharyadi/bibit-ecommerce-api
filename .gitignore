@@ -5,3 +5,5 @@ dist/*
 coverage/*
 .env.development
 .env.test
+src/service/passport.ts
+db/*

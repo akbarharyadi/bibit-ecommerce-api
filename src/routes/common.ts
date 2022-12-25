@@ -2,17 +2,17 @@ import express from 'express';
 import cors from 'cors';
 export abstract class CommonRoutes {
     app: express.Application;
-    name: string;
+    nameRoute: string;
 
-    constructor(app: express.Application, name: string) {
+    constructor(app: express.Application, nameRoute: string) {
         this.app = app;
-        this.name = name;
+        this.nameRoute = nameRoute;
         this.app.use(cors());
         this.configureRoutes();
     }
     
     getName() {
-        return this.name;
+        return this.nameRoute;
     }
     
     abstract configureRoutes(): express.Application;
