@@ -1,6 +1,7 @@
 import passport from "passport";
 import { ExtractJwt, Strategy as JwtStrategy } from 'passport-jwt'
 import { COOKIE_KEY } from '../config';
+import UsersRepositories from "../repositories/UserRepositories";
 
 const options = {
     jwtFromRequest: ExtractJwt.fromAuthHeaderAsBearerToken(),
@@ -13,11 +14,11 @@ passport.use(
         // usually this would be a database call:
         // get profile details
         // save profile details in db
-        // let userRepo = new UsersRepositories();
-        // const user: any = await userRepo.findByGoogleId(jwt_payload.google_id);
+        let userRepo = new UsersRepositories();
+        const user: any = await userRepo.findByGoogleId(jwt_payload.googleId);
         // If user doesn't exist creates a new user. (similar to sign up)
 
-        // done(null, user);
+        done(null, user);
     })
 );
 

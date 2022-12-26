@@ -26,7 +26,7 @@ export class AuthRoutes extends CommonRoutes {
         this.app.route(`/auth/google/redirect`)
             .get(passport.authenticate("google", { session: false }), async (req: express.Request, res: express.Response) => {
                 let user: any = req.user;
-                var payload = { google_id: user.google_id };
+                var payload = { googleId: user.googleId };
                 var token = jwt.sign(payload, COOKIE_KEY);
                 res.redirect("http://localhost:3000/login/" + token);
             });
