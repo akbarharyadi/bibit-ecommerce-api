@@ -1,7 +1,7 @@
 import passport from "passport";
 import { ExtractJwt, Strategy as JwtStrategy } from 'passport-jwt'
 import { COOKIE_KEY } from '../config';
-import UsersRepositories from "../repositories/UserRepositories";
+import UsersRepositories from "../repositories/user_repositories";
 
 const options = {
     jwtFromRequest: ExtractJwt.fromAuthHeaderAsBearerToken(),
@@ -10,7 +10,6 @@ const options = {
 
 passport.use(
     new JwtStrategy(options, async function (jwt_payload, done) {
-        console.log('payload received', jwt_payload);
         // usually this would be a database call:
         // get profile details
         // save profile details in db

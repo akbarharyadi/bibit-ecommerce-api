@@ -7,7 +7,13 @@ export abstract class CommonRoutes {
     constructor(app: express.Application, nameRoute: string) {
         this.app = app;
         this.nameRoute = nameRoute;
-        this.app.use(cors());
+
+        // here we are adding middleware to parse all incoming requests as JSON 
+        app.use(express.json());
+        
+        // here we are adding middleware to allow cross-origin requests
+        app.use(cors());
+        
         this.configureRoutes();
     }
     

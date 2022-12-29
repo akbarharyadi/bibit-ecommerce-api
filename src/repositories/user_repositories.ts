@@ -1,5 +1,5 @@
-import IUser from "../model/interface/IUser";
-import UserModel from "../model/UserModel";
+import IUser from "../model/interface/user";
+import UserModel from "../model/user_model";
 
 export default class UsersRepositories {
 
