@@ -58,7 +58,7 @@
   },
   "scripts": {
     "build": "tsc -p .",
-    "start": "dotenv -e .env ts-node ./src/server.js",
+    "start": "dotenv -e .env ts-node ./dist/server.js",
     "dev": "dotenv -e .env nodemon ./src/server.ts",
     "test": "dotenv -e .env.test jest --coverage"
   }
