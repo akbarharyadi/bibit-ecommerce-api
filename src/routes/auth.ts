@@ -28,7 +28,7 @@ export class AuthRoutes extends CommonRoutes {
                 let user: any = req.user;
                 var payload = { googleId: user.googleId };
                 var token = jwt.sign(payload, COOKIE_KEY);
-                res.redirect("http://localhost:3000/login/" + token);
+                res.redirect("http://www.bitmerce.cloud/login/" + token);
             });
 
         return this.app;
